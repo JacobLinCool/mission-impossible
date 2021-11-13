@@ -26,7 +26,7 @@ const enemy2 = new Enemy(0, 10, 1, 3, 2);
 const player = new Player(1);
 
 let end = null;
-const interval = 500;
+window.interval = 500;
 
 main();
 
@@ -140,7 +140,7 @@ function draw_secret() {
 function update_enemy(enemy) {
     if (enemy.direction === 1) {
         enemy.y -= enemy.speed;
-        if (enemy.y - enemy.vision < 1) enemy.direction = 3;
+        if (enemy.y - enemy.vision < 0) enemy.direction = 3;
     }
     if (enemy.direction === 2) {
         enemy.x += enemy.speed;
@@ -152,7 +152,7 @@ function update_enemy(enemy) {
     }
     if (enemy.direction === 4) {
         enemy.x -= enemy.speed;
-        if (enemy.x - enemy.vision < 1) enemy.direction = 2;
+        if (enemy.x - enemy.vision < 0) enemy.direction = 2;
     }
 }
 
